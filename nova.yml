@@ -1,0 +1,28 @@
+service_name: hello-world
+team_name: ios-dub
+port: 9000
+healthcheck_url: /
+
+environments:
+  - name: hello-world-env
+    aws_profile: aws-personalization
+    aws_region: us-east-1
+    deploy_arn: arn:aws:iam::470841446682:role/personalization-codedeploy-CodeDeployServiceRole
+    deployment_bucket: gilt-personalization
+    deployment_application_id: hello-world-HelloWorldApplicationStack-IMS38J39NTO0
+    stacks:
+      - stack_name: helloworldstack
+        stack_type: production
+        stack_template: NovaGeneralExternalStack
+        stack_template_version: v3
+        stack_deploy_config: OneAtATime
+        MinInstances: 1 
+        MaxInstances: 1 
+        DNS: hello-world.personalization.giltaws.com
+        InstanceType: t2.micro
+        FallbackKeyName: ouroboros
+        ElbSecurityGroups: sg-c740aebd
+        InstanceSecurityGroups: sg-c740aebd
+        VpcSubnetIds: subnet-6f6bb818,subnet-ea2cbbd0
+        ElbVpcSubnetIds: subnet-6f6bb818,subnet-ea2cbbd0
+        deployment_group: hello-world-HelloworldstackDeploymentGroup-ASYHFSCY9VQF
