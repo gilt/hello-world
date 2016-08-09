@@ -33,7 +33,7 @@ git tag vX.X.X
 sbt docker:publishLocal
 ```
 
-## Deploy with (nova tool) [https://github.com/gilt/nova]
+## Deploy with [nova tool](https://github.com/gilt/nova)
 
 Update the nova.yml deployment config. 
 
