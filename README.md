@@ -27,8 +27,16 @@ git commit -a -m "Change 'Hello message'"
 
 git tag vX.X.X
  ```
-- Build Docker image and push to Docker registry
+- Build Docker image and push to local Docker registry
 
 ```bash
-sbt docker:publish
+sbt docker:publishLocal
 ```
+
+## Deploy with (nova tool) [https://github.com/gilt/nova]
+
+Update the nova.yml deployment config. 
+
+```nova deploy hello-world-env helloworldstack```
+
+
